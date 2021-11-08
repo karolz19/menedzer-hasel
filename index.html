@@ -16,7 +16,7 @@
 
     </div>
     <script>
-        var password = prompt("Wprowadź hasło");
+        var password = prompt("Wprowadź hasło"); //logowanie do strony
         if (password=="1234") {
         }
         else 
@@ -28,7 +28,7 @@
             showList();
             window.setTimeout(function () {
                 window.location.reload();
-                    }, 300000);
+                    }, 300000);              //zablokowanie po 5 min
         }
         function addPosition() {
             let login = document.getElementById('login').value;
@@ -40,8 +40,8 @@
             } catch {
                 LoginPasswdList = Array();
                 LoginPasswdList.push(position);
-            }
-            
+            }                                     //dodawanie pozycji
+             
 
             window.localStorage.setItem('LoginPasswdList', JSON.stringify(LoginPasswdList));
             document.getElementById('login').value = "";
@@ -54,7 +54,7 @@
             let LoginPasswdList = document.getElementById('LoginPasswdList');
             let htmlBuffer = "";
             htmlBuffer += "<ul>";
-            for (let i = 0; i < listArray.length; i++) {
+            for (let i = 0; i < listArray.length; i++) {                      //lista
                 htmlBuffer += "<li><button onclick=\"removePosition("+i+")\">Usuń</button>" 
                                 + listArray[i] + "</li>";
             }
@@ -65,7 +65,7 @@
             let listArray = JSON.parse(window.localStorage.getItem('LoginPasswdList'));
             
             listArray.splice(i, 1);
-            
+                                                  //usuwanie pozycji
 
             window.localStorage.setItem('LoginPasswdList', JSON.stringify(listArray));
             showList();
